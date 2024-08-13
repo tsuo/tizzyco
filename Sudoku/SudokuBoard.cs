@@ -30,9 +30,9 @@
         public void CheckCell(int row, int column, int value)
         {
             if (value < 1 || value > 9)
-            {
+            
                 throw new ArgumentException("Only values between 1-9 are allowed");
-            }
+            
             board[row, column] = value;
 
         }
