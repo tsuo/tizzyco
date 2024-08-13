@@ -6,7 +6,7 @@
     {
         private int[,] board = new int[9, 9];
 
-        public SudokuBoard(int[,] initial = null)
+        public SudokuBoard(int[,]? initial = null)
         {
             // Initialize the board or load a puzzle
 
@@ -21,12 +21,19 @@
 
         public int[] GetSection(int section)
         {
-            int sectionIndex;
-
             int x = section / 3;
             int y = section % 3;
 
-            return [x, y];
+            return new int[] {x, y};
+        }
+        
+        public void CheckCell(int row, int column, int value)
+        {
+            if (value < 1 || value > 9)
+            {
+                throw new ArgumentException("Only values between 1-9 are allowed");
+            }
+            board[row, column] = value;
 
         }
     }
